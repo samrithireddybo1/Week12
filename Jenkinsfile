@@ -28,15 +28,12 @@ pipeline {
                 bat "docker build -t week12:v1 ."
             }
         }
-        stage('Docker Login') {
+       stage('Docker Login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub_creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    bat '''
-                        docker login -u %DOCKER_USER% -p %DOCKER_PASS%
-                    '''
-                }
+                bat 'docker login -u samrithi -p Samrithi@1605'
             }
         }
+
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
