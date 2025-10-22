@@ -1,37 +1,56 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Form Example</title>
-        <script>
-            function validateForm() {
-                var username = document.forms["f1"]["username"].value.trim();
-                var password = document.forms["f1"]["pwd"].value;
-
-                if (username == "") {
-                    alert("Username cannot be empty");
-                    return false;
-                }
-                if (password == "") {
-                    alert("Password cannot be empty");
-                    return false;
-                }
-                if (password.length < 6) {
-                    alert("Password must be at least 6 characters long");
-                    return false;
-                }
-                return true;
-            }
-        </script>
-    </head>
-    <body>
-        <center>
-            <h2>Application Form</h2>
-            <form name="f1" action="/submit" method="POST" onsubmit="return validateForm()">
-                Enter your name: <input type="text" name="username">
-                <br/><br/>
-                Enter your password: <input type="password" name="pwd">
-                <br/><br/>
-                <input type="submit" name="sb" value="Submit">
-            </form>
-        </center>
-    </body>
+  <head>
+    <title>Login Form</title>
+    <!-- <style>
+      body {
+        font-family: Arial;
+        background-color: #f5f5f5;
+        margin: 50px;
+      }
+      .container {
+        width: 350px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+        margin: auto;
+      }
+      h2 {
+        text-align: center;
+      }
+      label {
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: teal;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: darkcyan;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login Form</h2>
+      <form method="POST" action="/submit">
+        <label>Username:</label><br />
+        <input type="text" name="username" /><br />
+        <label>Password:</label><br />
+        <input type="password" name="pwd" /><br />
+        <button type="submit" name="sb">Submit</button>
+      </form>
+    </div>
+  </body>
 </html>
