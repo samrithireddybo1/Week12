@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: seleniumtestdemoapp-deployment
+  name: week12-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: seleniumtestdemoapp
+      app: week12
   template:
     metadata:
       labels:
-        app: seleniumtestdemoapp
+        app: week12
     spec:
       containers:
-        - name: seleniumtestdemoapp
-          image: bhavani765/sample:seleniumtestimage   # use your Docker Hub image
+        - name: week12-container
+          image: samrithi/week12:v1
           ports:
             - containerPort: 5000
