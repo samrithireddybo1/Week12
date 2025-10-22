@@ -8,17 +8,17 @@ pipeline {
                     echo "Running Selenium Tests using pytest"
 
                     // Install Python dependencies
-                    bat 'python -m pip install -r requirements.txt'
+                    bat '"C:\\Users\\samri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install -r requirements.txt'
+
 
                     //  Start Flask app in background
-                    bat 'start /B python app.py'
+                    bat 'start /B "C:\\Users\\samri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" app.py'
+                    bat '"C:\\Users\\samri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pytest -v'
 
-                    // Wait a few seconds for the server to start
-                    bat 'ping 127.0.0.1 -n 5 > nul'
 
                     // Run tests using pytest
                     
-                    bat 'pytest -v'
+                    bat '"C:\\Users\\samri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pytest -v'
             }
         }
 
@@ -28,12 +28,11 @@ pipeline {
                 bat "docker build -t week12:v1 ."
             }
         }
-       stage('Docker Login') {
+        stage('Docker Login') {
             steps {
-                bat 'docker login -u samrithi -p Samrithi@1605'
+                  bat 'docker login -u samrithi -p Samrithi@1605'
+                }
             }
-        }
-
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
