@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: week12-deployment
+  name: seleniumtestdemoapp-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: week12
+      app: seleniumtestdemoapp
   template:
     metadata:
       labels:
-        app: week12
+        app: seleniumtestdemoapp
     spec:
       containers:
-        - name: week12-container
-          image: samrithi/week12:v1
+        - name: seleniumtestdemoapp
+          image: samrithi/seleniumjavascript:seleniumtestimage  
           ports:
             - containerPort: 5000
